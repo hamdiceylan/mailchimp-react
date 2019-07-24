@@ -82,6 +82,8 @@
       }
     } : _ref$styles,
         className = _ref.className,
+        _ref$placeHolder = _ref.placeHolder,
+        placeHolder = _ref$placeHolder === undefined ? "Please type your email" : _ref$placeHolder,
         buttonClassName = _ref.buttonClassName,
         action = _ref.action,
         _ref$messages = _ref.messages,
@@ -127,9 +129,13 @@
     return _react2.default.createElement(
       "form",
       { onSubmit: handleSubmit, className: className },
-      _react2.default.createElement("input", { onChange: function onChange(e) {
+      _react2.default.createElement("input", {
+        placeholder: placeHolder,
+        onChange: function onChange(e) {
           return setEmail(e.target.value);
-        }, defaultValue: email }),
+        },
+        defaultValue: email
+      }),
       _react2.default.createElement(
         "button",
         {

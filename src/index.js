@@ -16,6 +16,7 @@ export default ({
     }
   },
   className,
+  placeHolder = "Please type your email",
   buttonClassName,
   action,
   messages = {
@@ -51,7 +52,11 @@ export default ({
   };
   return (
     <form onSubmit={handleSubmit} className={className}>
-      <input onChange={e => setEmail(e.target.value)} defaultValue={email} />
+      <input
+        placeholder={placeHolder}
+        onChange={e => setEmail(e.target.value)}
+        defaultValue={email}
+      />
       <button
         disabled={status === "sending" || status === "success"}
         type="submit"
