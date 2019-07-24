@@ -31,19 +31,41 @@ We will use this URL to configure the component
 import React from "react";
 import MailchimpReact from "mailchimp-react";
 export default () => (
-  <MailchimpReact action="https://<YOUR-USER>.us16.list-manage.com/subscribe/post?u=XXXXXXXXXXXXX&amp;id=XXXXXX" />
+  <MailchimpReact action="https://<YOUR-USER>.usX.list-manage.com/subscribe/post?u=XXXXXXXXXXXXX&amp;id=XXXXXX" />
 );
 ```
 
 # Options
 
-### Messages
-
-Personalize or change the message language by default
-
-### ClassName
-
-Add a personalized class to personalize your form
+```js 
+({
+  styles = {
+    sendingMsg: {
+      color: "#0652DD"
+    },
+    successMsg: {
+      color: "#009432"
+    },
+    duplicateMsg: {
+      color: "#EE5A24"
+    },
+    errorMsg: {
+      color: "#ED4C67"
+    }
+  },
+  className,
+  buttonClassName,
+  action,
+  messages = {
+    sending: "Sending...",
+    success: "Thank you for subscribing!",
+    error: "An unexpected internal error has occurred.",
+    empty: "You must write an e-mail.",
+    duplicate: "Too many subscribe attempts for this email address",
+    button: "Subscribe!"
+  }
+})
+```
 
 # License
 
