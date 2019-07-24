@@ -106,7 +106,7 @@
 
     var handleSubmit = function handleSubmit(e) {
       e.preventDefault();
-      var url = (action + "&" + e.target.value).replace("/post?", "/post-json?");
+      var url = (action + "&EMAIL=" + email).replace("/post?", "/post-json?");
       var regex = /^([\w_\.\-\+])+\@([\w\-]+\.)+([\w]{2,10})+$/;
       !regex.test(email) ? setStatus("empty") : sendData(url);
     };
@@ -127,13 +127,9 @@
     return _react2.default.createElement(
       "form",
       { onSubmit: handleSubmit, className: className },
-      _react2.default.createElement("input", {
-        key: input.name,
-        onChange: function onChange(e) {
+      _react2.default.createElement("input", { onChange: function onChange(e) {
           return setEmail(e.target.value);
-        },
-        defaultValue: email
-      }),
+        }, defaultValue: email }),
       _react2.default.createElement(
         "button",
         {

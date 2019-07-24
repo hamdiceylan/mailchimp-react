@@ -31,7 +31,7 @@ export default ({
   const [email, setEmail] = useState("");
   const handleSubmit = e => {
     e.preventDefault();
-    const url = `${action}&${e.target.value}`.replace("/post?", "/post-json?");
+    const url = `${action}&EMAIL=${email}`.replace("/post?", "/post-json?");
     const regex = /^([\w_\.\-\+])+\@([\w\-]+\.)+([\w]{2,10})+$/;
     !regex.test(email) ? setStatus("empty") : sendData(url);
   };
@@ -51,11 +51,7 @@ export default ({
   };
   return (
     <form onSubmit={handleSubmit} className={className}>
-      <input
-        key={input.name}
-        onChange={e => setEmail(e.target.value)}
-        defaultValue={email}
-      />
+      <input onChange={e => setEmail(e.target.value)} defaultValue={email} />
       <button
         disabled={status === "sending" || status === "success"}
         type="submit"
